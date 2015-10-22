@@ -165,43 +165,32 @@ def get_sum_zero_pairs(input_list):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
-
     # # UMA MADE IT WORK WITH LISTS AND SETS!!!!
-
     # sum_zero_pairs_list = list(set(input_list))
     # output = []
 
-
-    # for number in input_list:
+  # for number in input_list:
     #     if number >= 0:
     #         if -number in sum_zero_pairs_list:
     #             if [-number, number] not in output:
     #                 output.append([-number, number])
 
     # return output
-
     #####################
 
     # NOW DO IT WITH DICTIONARIES
+    #I THINK I FINALLY DID IT! my output was clear when I ran it
 
-    # have each output pair [-1,1] be a k:v in a dict.
-
+    # if there number in the input_list and the number is -negative in that list and if that
+    #-negative number is greater than or qual to 0 add it to dictionary as its key.
+    #second iteration if number has the opposite value of key add it add it as value to the dict
+    #return dict in list of sum of value pairs
     dict1 = {}
-
-    for num in input_list:
-        if -(num) in input_list:
-            # check to make sure the pair is not in the dict
-            # TODO
-            # add to dict1
-            dict1[num] = -num
-
-    # now that the dict1 is made, return the answer in this format:
-    # [[-2, 2], [-1, 1], [0, 0]]
-
-    return []
-
-
-
+    for number in input_list:
+            if (-number) in input_list:
+                if -number >= 0:
+                    dict1[-(number)] = number
+    return dict1.items()
 
 def remove_duplicates(words):
     """Given a list of words, return the list with duplicates removed.
