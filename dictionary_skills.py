@@ -138,7 +138,7 @@ def find_unique_common_items(list1, list2):
 
 
 def get_sum_zero_pairs(input_list):
-    """Given a list of numbers, return list of x,y number pair lists where x + y == 0.
+    """Given list of numbers, return list of pair summing to 0.
 
     Given a list of numbers, add up each individual pair of numbers.
     Return a list of each pair of numbers that adds up to 0.
@@ -146,7 +146,7 @@ def get_sum_zero_pairs(input_list):
 
     For example:
 
-        >>> sort_pairs( get_sum_zero_pairs(my) )
+        >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1]) )
         [[-2, 2], [-1, 1]]
 
         >>> sort_pairs( get_sum_zero_pairs([3, -3, 2, 1, -2, -1]) )
@@ -165,37 +165,43 @@ def get_sum_zero_pairs(input_list):
         [[-2, 2], [-1, 1], [0, 0]]
 
     """
-    # FRIST TRY
-    # sum_zero_pairs_list = []
-    #     for n in input_list:
-    #         if n in input_list & -n in input_list
-    #         sum_zero_pairs_list.append(n & -n )
 
-    # # SECOND TRY
-    # input_list = set(input_list)
-    # for item in input_list:
-    # if item -item input_set:
-    # input_list.append(-item, item)
-    # return input_list
+    # # UMA MADE IT WORK WITH LISTS AND SETS!!!!
 
-    # THIRD TRY
-    # input_list = set(input_list)
-    #     for item in input_list:
-    #         if item -item input_set:
-
-    # input list using the method set to retrun list of unique items
-    # new_list = list(set(input_list))
-    # #print new_list = ([1, 2, 3, -2, -3, -1])
+    # sum_zero_pairs_list = list(set(input_list))
+    # output = []
 
 
+    # for number in input_list:
+    #     if number >= 0:
+    #         if -number in sum_zero_pairs_list:
+    #             if [-number, number] not in output:
+    #                 output.append([-number, number])
 
-    sum_zero_pairs_list = list(set(input_list)
-    #print new_list = ([1, 2, 3, -2, -3, -1])
-        for number in input_list:
-            if number >= 0:
-                if -number in sum_zero_pairs_list:
-                sum_zero_pairs_list.append([-number, number])
-                return sum_zero_pairs_list
+    # return output
+
+    #####################
+
+    # NOW DO IT WITH DICTIONARIES
+
+    # have each output pair [-1,1] be a k:v in a dict.
+
+    dict1 = {}
+
+    for num in input_list:
+        if -(num) in input_list:
+            # check to make sure the pair is not in the dict
+            # TODO
+            # add to dict1
+            dict1[num] = -num
+
+    # now that the dict1 is made, return the answer in this format:
+    # [[-2, 2], [-1, 1], [0, 0]]
+
+    return []
+
+
+
 
 def remove_duplicates(words):
     """Given a list of words, return the list with duplicates removed.
